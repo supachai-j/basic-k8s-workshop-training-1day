@@ -4,7 +4,7 @@
 
 This folder contains step-by-step lab guides for learning Kubernetes basics.
 
-**Lab Structure:** 19 lessons progressing from fundamental to advanced topics.
+**Lab Structure:** 22 labs progressing from environment setup to advanced topics.
 
 ---
 
@@ -34,6 +34,16 @@ k8s-node    Ready    control-plane   10d   v1.29.x
 
 ---
 
+## ⚠️ Start Here: LAB00 - Environment Setup
+
+**Before doing any labs, you must complete LAB00 to set up your local Kubernetes environment.**
+
+Choose one option: **Minikube**, **Docker Desktop**, **Podman**, or **K3s**
+
+📄 See: [LAB00-setup.md](LAB00-setup.md)
+
+---
+
 ## Lab Environment Variables
 
 Set up convenient aliases for training:
@@ -59,6 +69,7 @@ source ~/.bashrc
 
 | Lab | File | Topic | Estimated Time |
 |-----|------|-------|----------------|
+| **00** | **[LAB00-setup.md](LAB00-setup.md)** | **Local Lab Setup** | **30 min** |
 | 01 | [LAB01-namespace.md](LAB01-namespace.md) | Namespaces | 10 min |
 | 02 | [LAB02-pod.md](LAB02-pod.md) | Pods | 15 min |
 | 03 | [LAB03-multi-container.md](LAB03-multi-container.md) | Multi-Container Pods | 15 min |
@@ -78,6 +89,8 @@ source ~/.bashrc
 | 17 | [LAB17-network-policy.md](LAB17-network-policy.md) | Network Policies | 20 min |
 | 18 | [LAB18-affinity-taint.md](LAB18-affinity-taint.md) | Affinity & Taints | 25 min |
 | 19 | [LAB19-cleanup.md](LAB19-cleanup.md) | Cleanup | 5 min |
+| 20 | [LAB20-helm.md](LAB20-helm.md) | Helm Package Manager | 25 min |
+| 21 | [LAB21-cni-flannel.md](LAB21-cni-flannel.md) | CNI (Flannel) | 20 min |
 
 ---
 
@@ -85,6 +98,10 @@ source ~/.bashrc
 
 ```
 START
+  │
+  ▼
+Lab 00: Local Environment Setup
+  │  (Minikube / Docker Desktop / Podman / K3s)
   │
   ▼
 Lab 01: Namespace
@@ -139,6 +156,12 @@ Lab 18: Affinity/Taints
   │
   ▼
 Lab 19: Cleanup
+  │
+  ▼
+Lab 20: Helm
+  │
+  ▼
+Lab 21: CNI (Flannel)
   │
   ▼
 END
@@ -257,12 +280,13 @@ kubectl run curl-test --rm -it --image=curlimages/curl -n <ns> -- sh
 
 ## Tips for Success
 
-1. **Read the YAML files** - Understand what each field does before applying
-2. **Check status** - Always run `kubectl get pods` after applying
-3. **Use describe** - `kubectl describe` gives detailed error messages
-4. **Check logs** - Application logs often explain failures
-5. **Start fresh** - Run cleanup between labs if issues persist
-6. **Take notes** - Record commands that work well for you
+1. **Complete LAB00 first** - Set up your local Kubernetes environment
+2. **Read the YAML files** - Understand what each field does before applying
+3. **Check status** - Always run `kubectl get pods` after applying
+4. **Use describe** - `kubectl describe` gives detailed error messages
+5. **Check logs** - Application logs often explain failures
+6. **Start fresh** - Run cleanup between labs if issues persist
+7. **Take notes** - Record commands that work well for you
 
 ---
 
@@ -281,9 +305,12 @@ kubectl run curl-test --rm -it --image=curlimages/curl -n <ns> -- sh
 
 | Session | Labs | Time |
 |---------|------|------|
+| Setup | Lab 00 | 30 min |
 | Morning Block 1 | Lab 01-05 | 2.5 hours |
 | Morning Block 2 | Lab 07 | 1 hour |
 | Afternoon Block 1 | Lab 06, Lab 14 | 1.5 hours |
 | Afternoon Block 2 | Lab 08, Lab 12, Lab 13 | 2 hours |
 | Afternoon Block 3 | Lab 11, Lab 16 | 1 hour |
-| **Total** | **All 19 labs** | **8 hours** |
+| Afternoon Block 4 | Lab 17, Lab 18 | 1.5 hours |
+| Final Block | Lab 20, Lab 21 | 1 hour |
+| **Total** | **All 22 labs** | **~10 hours** |
